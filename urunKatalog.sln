@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "urunKatalog.MvcWebUI", "urunKatalog.MvcWebUI\urunKatalog.MvcWebUI.csproj", "{E3FC6CA8-74A8-4FC9-BC5C-2A99AE064AE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3FC6CA8-74A8-4FC9-BC5C-2A99AE064AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FC6CA8-74A8-4FC9-BC5C-2A99AE064AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FC6CA8-74A8-4FC9-BC5C-2A99AE064AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FC6CA8-74A8-4FC9-BC5C-2A99AE064AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5588414C-A307-4EEA-AE73-2C07D78678A4}
+	EndGlobalSection
+EndGlobal
