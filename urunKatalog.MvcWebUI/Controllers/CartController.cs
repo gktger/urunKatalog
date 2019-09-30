@@ -10,7 +10,7 @@ namespace urunKatalog.MvcWebUI.Controllers
 {
     public class CartController : Controller
     {
-        private  DataContext db= new DataContext();
+        private DataContext db = new DataContext();
 
         public ActionResult Index()
         {
@@ -20,9 +20,9 @@ namespace urunKatalog.MvcWebUI.Controllers
         public ActionResult AddToCart(int Id)
         {
             var product = db.Products.FirstOrDefault(i => i.Id == Id);
-            if (product!=null)
+            if (product != null)
             {
-                GetCart().AddProduct(product,1);
+                GetCart().AddProduct(product, 1);
             }
 
             return RedirectToAction("Index");
@@ -40,16 +40,19 @@ namespace urunKatalog.MvcWebUI.Controllers
 
         public Cart GetCart()
         {
-            var cart = (Cart) Session["Cart"];
-            if (cart==null)
+            var cart = (Cart)Session["Cart"];
+            if (cart == null)
             {
-                cart=new Cart();
+                cart = new Cart();
                 Session["Cart"] = cart;
             }
 
             return cart;
         }
+        public PartialViewResult Summary()
+        {
+            return PartialView(GetCart());
+        }
 
-        
     }
 }
