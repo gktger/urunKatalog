@@ -10,7 +10,7 @@ namespace urunKatalog.MvcWebUI.Models
     public class ShippingDetails
     {
        
-        public string FullName { get; set; }
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Lütfen adres tanımı giriniz.")]       
         public string AdresBasligi { get; set; }

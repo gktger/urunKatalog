@@ -70,7 +70,7 @@ namespace urunKatalog.MvcWebUI.Controllers
             if (ModelState.IsValid)
             {
                 //Siparişi Veritabanına Kayıt et.
-
+                SaveOrder(cart, entity);
 
                 //cartı sıfırla
                 cart.Clear();
@@ -83,6 +83,38 @@ namespace urunKatalog.MvcWebUI.Controllers
             }
 
 
+        }
+
+        private void SaveOrder(Cart cart, ShippingDetails entity)
+        {
+            var order = new Order();
+
+            order.OrderNumber = "A" + (new Random()).Next(11111, 99999).ToString();
+            order.Total = cart.Total();
+            order.OrderDate = DateTime.Now;
+            order.OrderState = EnumOrderState.Waiting;
+            order.Username = User.Identity.Name;
+           
+            order.AdresBasligi = entity.AdresBasligi;
+            order.Adres = entity.Adres;
+            order.Sehir = entity.Sehir;
+            order.Semt = entity.Semt;
+            order.Mahalle = entity.Mahalle;
+            order.PostaKodu = entity.PostaKodu;
+
+            order.OrderLines = new List<OrderLine>();
+            foreach (var pr in cart.CartLines)
+            {
+                var orderLine = new OrderLine();
+                orderLine.Quantity = pr.Quantity;
+                orderLine.Price = pr.Quantity * pr.Product.Price;
+                orderLine.ProductId = pr.Product.Id;
+
+                order.OrderLines.Add(orderLine);
+            }
+
+            db.Orders.Add(order);
+            db.SaveChanges();
         }
     }
 }
